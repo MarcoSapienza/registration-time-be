@@ -64,7 +64,7 @@ module.exports = {
         });
     },
     list: (cb) => {
-        registrationtimeSchema.find({}).populate({path: 'project', select: 'name'}).exec((err, registrationTimeList) => {
+        registrationtimeSchema.find({}).populate({path: 'project', select: 'name amountperhour'}).exec((err, registrationTimeList) => {
             if(err)
                 cb(err);
             else
