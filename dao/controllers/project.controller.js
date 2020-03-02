@@ -66,6 +66,7 @@ module.exports = {
     list: (cb) => {
         projectSchema.find({}).populate({path: 'customer', select: 'name'}).exec((err, projectList) => {
             if(err)
+                console.log("Error: ");
                 cb(err);
             else
                 cb(null,projectList);

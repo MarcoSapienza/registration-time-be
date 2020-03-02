@@ -4,3 +4,7 @@ node_js:
 install: npm install
 script: npm test
 after_success: npm run coverage
+deploy:
+  provider: heroku
+  api_key: 4a2dadfd-3f59-413e-bdae-f7c170336933
+  app: registrationtime-be
