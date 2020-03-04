@@ -14,7 +14,11 @@ const RegistrationTimeSchema = new Schema({
         type: Date,
         required: false
     },
-    description: String
+    description: String,
+    invoiced: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = RegistrationTimeSchema;
