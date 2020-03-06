@@ -4,7 +4,6 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 const bearerToken = require('express-bearer-token');
 var logger = require('morgan');
-const isAuth = require('./auth/authentication');
 
 const db = require('./dao/db');
 // var notifierController = require('./notifier/notifier.controller');
@@ -50,18 +49,6 @@ app.use(
     }
 );
 
-
-// app.use('/api/', indexRouter);
-// app.use('/api/operators', operatorsRouter);
-// app.use('/api/subjects', isAuth, subjectsRouter);
-// app.use('/api/paperworks', isAuth, paperworksRouter);
-// app.use('/api/appointments', isAuth, appointmentsRouter);
-// app.use('/api/transactions', isAuth, transactionsRouter);
-// app.use('/api/category', isAuth, categoryRouter);
-// app.use('/api/statistics', isAuth, statisticsRouter);
-// //app.use('/api/notifier', isAuth, notifierRouter);
-// app.use('/api/roles', isAuth, rolesRouter);
-// app.use('/api/documents', isAuth, documentRouter);
 app.use('/api/customer',customerRouter);
 app.use('/api/project', projectRouter);
 app.use('/api/registrationtime', registrationTimeRouter);
@@ -83,7 +70,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// notifierController.startNofitier();
 
 module.exports = app;

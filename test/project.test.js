@@ -19,8 +19,7 @@ const customerData = {
 
 describe('Project Model Test', () => {
 
-    // It's just so easy to connect to the MongoDB Memory Server
-    // By using mongoose.connect
+    
     beforeAll(async () => {
         await mongoose.connect(global.__MONGO_URI__, {useNewUrlParser: true, useCreateIndex: true}, (err) => {
             if (err) {
@@ -50,7 +49,7 @@ describe('Project Model Test', () => {
                 const validProjectInstance = new validProjectModel(projectData);
                 const savedProject = await validProjectInstance.save();
 
-                // Object Id should be defined when successfully saved to MongoDB.
+
                 expect(savedProject._id).toBeDefined();
                 expect(savedProject.name).toBe(projectData.name);
                 expect(savedProject.amountperhour).toBe(projectData.amountperhour);
@@ -68,12 +67,10 @@ describe('Project Model Test', () => {
             try {
                 await collection.drop()
             } catch (error) {
-                // This error happens when you try to drop a collection that's already dropped. Happens infrequently.
-                // Safe to ignore.
+
                 if (error.message === 'ns not found') return
 
-                // This error happens when you use it.todo.
-                // Safe to ignore.
+
                 if (error.message.includes('a background operation is currently running')) return
 
                 console.log(error.message)
@@ -81,7 +78,7 @@ describe('Project Model Test', () => {
         }
     }
 
-// Disconnect Mongoose
+
     afterAll(async () => {
         await dropAllCollections()
     })

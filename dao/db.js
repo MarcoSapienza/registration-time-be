@@ -1,8 +1,4 @@
 const mongoose = require( 'mongoose' );
-const config = require('../config/config');
-
-//const dbURI = 'mongodb://' + config.db.host+':'+config.db.port+'/'+config.db.dbname;
-
 
 //MongoDB on MongoDB Atlas
 const dbURI = 'mongodb+srv://user_test:PHVx4CoTyhlijy3Q@cluster0-humfy.mongodb.net/test?retryWrites=true&w=majority\n';
