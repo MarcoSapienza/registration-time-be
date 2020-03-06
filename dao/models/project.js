@@ -8,10 +8,10 @@ const ProjectSchema = new Schema({
         type: Boolean,
         default: true
     },
-    customer:[{
+    customer:{
         type: Schema.ObjectId,
         ref: 'Customer'
-    }],
+    },
 });
 
 module.exports = ProjectSchema;
