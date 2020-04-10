@@ -17,7 +17,7 @@ const customerData = {
 
 describe('Customer Model Test', () => {
 
-    
+
     beforeAll(async () => {
         await mongoose.connect(global.__MONGO_URI__, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
             if (err) {
@@ -31,7 +31,7 @@ describe('Customer Model Test', () => {
         const validCustomerModel = new mongoose.model('Customer',customerSchema);
         const validCustomerInstance = new validCustomerModel(customerData);
         const savedCustomer = await validCustomerInstance.save();
-        
+
         expect(savedCustomer._id).toBeDefined();
         expect(savedCustomer.name).toBe(customerData.name);
         expect(savedCustomer.fiscalCode).toBe(customerData.fiscalCode);
@@ -45,6 +45,8 @@ describe('Customer Model Test', () => {
         expect(savedCustomer.mobilePhone).toBe(customerData.mobilePhone);
         expect(savedCustomer.note).toBe(customerData.note);
         expect(savedCustomer.active).toBe(customerData.active);
+
+        
     });
 
 
